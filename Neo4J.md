@@ -114,3 +114,18 @@ CREATE (a)-[:ESCRITO_POR]->(l)
 ```
 ### Visualizacion de la relacion Autor con sus libros
 ![Visualizacion del Grafo](Imagenes/tercerGrafo.png)
+
+
+```markdown
+
+Añado los usuarios, estos tienen 3 gustos cada uno que van relacionados con las categorias de los libros
+```cypher
+MATCH (u:Usuario)
+WITH u, [u.gusto1, u.gusto2, u.gusto3] AS gustos
+UNWIND gustos AS gusto
+MERGE (c:Categoria {nombre: gusto})
+MERGE (u)-[:TIENE_GUSTO]->(c)
+
+```
+### Viasualizacion de todas las relaciones hasta ahora de la biblioteca
+
