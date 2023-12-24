@@ -113,3 +113,4 @@ MATCH (a:Autor), (l:Libro {autor: a.nombre})
 CREATE (a)-[:ESCRITO_POR]->(l)
 ```
 ### Visualizacion de la relacion Autor con sus libros
+![Visualizacion del Grafo](Imagenes/tercerGrafo.png)
