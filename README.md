@@ -11,7 +11,7 @@ https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
 
 ## Querys usadas para la creacion de la base de datos
 ```markdown
-## Añadir las Categorías de los Libros
+Añadir las Categorías de los Libros
 
 ```cypher
 CREATE (:Categoria {nombre: 'Ficción'})
@@ -26,7 +26,8 @@ CREATE (:Categoria {nombre: 'Historia'})
 CREATE (:Categoria {nombre: 'Cocina'})
 ```
 
-## Crear las Relaciones entre Libros y Categorías
+```markdown
+ Crear las Relaciones entre Libros y Categorías
 
 ```cypher
 CREATE (:Categoria {nombre: 'Ficción'})
