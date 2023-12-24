@@ -1,5 +1,10 @@
 # Ejercicio programacion concurrente con GraphQL de Luis Miguel Urbez
 
+## Paginas de interés
+
+**Neo4J Instance DataBase**
+https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
+
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
 Este proyecto tiene como objetivo diseñar y desarrollar un sistema de administración de biblioteca en línea utilizando GraphQL y técnicas de programación concurrente.Este sistema permitirá a los usuarios buscar libros, autores y categorías de libros. Además, los usuarios podrán hacer reservas y pedir prestados libros electrónicamente. Los administradores podrán agregar, editar y eliminar libros, autores y categorías.
