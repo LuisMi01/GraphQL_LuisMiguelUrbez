@@ -128,4 +128,5 @@ MERGE (u)-[:TIENE_GUSTO]->(c)
 
 ```
 ### Viasualizacion de todas las relaciones hasta ahora de la biblioteca
+![Visualizacion del Grafo](Imagenes/cuartoGrafo.png)
 
