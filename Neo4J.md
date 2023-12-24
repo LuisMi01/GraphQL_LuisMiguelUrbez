@@ -43,10 +43,12 @@ CREATE (b)-[:PERTENECE_A]->(c)
 
 ```markdown
 Crear la relacion entre Bibliotecarios y categorias
+
+```cypher
 MATCH (b:Bibliotecario), (c:Categoria {nombre: b.categoriaBibliotecario})
 CREATE (b)-[:TRABAJA_EN]->(c)
 ```
 
 ## Visualizacion del grafo con los Libros y Bibliotecarios separados por Categorias
 
-![Visualizacion del Grafo](
+![Visualizacion del Grafo](Imagenes/segundoGrafo.png)
