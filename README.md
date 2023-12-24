@@ -49,7 +49,7 @@ CREATE (b)-[:PERTENECE_A]->(c)
 
 ## Visualizacion del grafo despues de esta implementación
 
-![Visualización del Grafo](ruta/a/la/imagen.png)
+![Visualización del Grafo](Imagenes/Captura de pantalla 2023-12-24 132909.png)
 
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
