@@ -9,48 +9,6 @@ https://workspace-preview.neo4j.io/workspace/explore
 https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
 
 
-## Querys usadas para la creacion de la base de datos
-```markdown
-Añadir las Categorías de los Libros
-
-```cypher
-CREATE (:Categoria {nombre: 'Ficción'})
-CREATE (:Categoria {nombre: 'Misterio'})
-CREATE (:Categoria {nombre: 'Romance'})
-CREATE (:Categoria {nombre: 'Ciencia Ficción'})
-CREATE (:Categoria {nombre: 'Fantasía'})
-CREATE (:Categoria {nombre: 'Thriller'})
-CREATE (:Categoria {nombre: 'Biografía'})
-CREATE (:Categoria {nombre: 'Autoayuda'})
-CREATE (:Categoria {nombre: 'Historia'})
-CREATE (:Categoria {nombre: 'Cocina'})
-```
-
-```markdown
- Crear las Relaciones entre Libros y Categorías
-
-```cypher
-CREATE (:Categoria {nombre: 'Ficción'})
-CREATE (:Categoria {nombre: 'Misterio'})
-CREATE (:Categoria {nombre: 'Romance'})
-CREATE (:Categoria {nombre: 'Ciencia Ficción'})
-CREATE (:Categoria {nombre: 'Fantasía'})
-CREATE (:Categoria {nombre: 'Thriller'})
-CREATE (:Categoria {nombre: 'Biografía'})
-CREATE (:Categoria {nombre: 'Autoayuda'})
-CREATE (:Categoria {nombre: 'Historia'})
-CREATE (:Categoria {nombre: 'Cocina'})
-
-WITH 1 as dummy // Puedes utilizar WITH para dividir las fases de la consulta
-
-MATCH (b:Libro), (c:Categoria {nombre: b.categoria})
-CREATE (b)-[:PERTENECE_A]->(c)
-```
-
-## Visualizacion del grafo despues de esta implementación
-
-![Visualización del Grafo](Imagenes/primerGrafo.png)
-
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
 Este proyecto tiene como objetivo diseñar y desarrollar un sistema de administración de biblioteca en línea utilizando GraphQL y técnicas de programación concurrente.Este sistema permitirá a los usuarios buscar libros, autores y categorías de libros. Además, los usuarios podrán hacer reservas y pedir prestados libros electrónicamente. Los administradores podrán agregar, editar y eliminar libros, autores y categorías.
