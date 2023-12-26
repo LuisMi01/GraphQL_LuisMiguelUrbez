@@ -8,7 +8,8 @@ https://workspace-preview.neo4j.io/workspace/explore
 **Neo4J Instance DataBase**
 https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
 <hr>
-**Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio** https://github.com/grand-stack/grand-stack-starter
+**Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio**
+https://github.com/grand-stack/grand-stack-starter
 <hr>
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
