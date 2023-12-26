@@ -4,13 +4,15 @@
 
 **Grafo de la base de datos**
 https://workspace-preview.neo4j.io/workspace/explore
+
 **Neo4J Instance DataBase**
 https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
 
-<hr>
 **Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio**
 https://github.com/grand-stack/grand-stack-starter
-<hr>
+
+**La mayoria de la informacion y documentacion ha sido adquirida aqui (sobretodo para la inicializacion y entendimiento del framework trabajado)**
+https://graphqleditor.com/blog/grandstack/
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
 Este proyecto tiene como objetivo diseñar y desarrollar un sistema de administración de biblioteca en línea utilizando GraphQL y técnicas de programación concurrente.Este sistema permitirá a los usuarios buscar libros, autores y categorías de libros. Además, los usuarios podrán hacer reservas y pedir prestados libros electrónicamente. Los administradores podrán agregar, editar y eliminar libros, autores y categorías.
