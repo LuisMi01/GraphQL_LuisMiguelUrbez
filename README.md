@@ -13,6 +13,10 @@ https://github.com/grand-stack/grand-stack-starter
 
 **La mayoria de la informacion y documentacion ha sido adquirida aqui (sobretodo para la inicializacion y entendimiento del framework trabajado)**
 https://graphqleditor.com/blog/grandstack/
+
+**Toda la información para conocer Apollo Client**
+https://www.apollographql.com/docs/react/get-started
+
 # Sistema de Administración de Biblioteca en Línea con GraphQL y Programación Concurrente
 
 Este proyecto tiene como objetivo diseñar y desarrollar un sistema de administración de biblioteca en línea utilizando GraphQL y técnicas de programación concurrente.Este sistema permitirá a los usuarios buscar libros, autores y categorías de libros. Además, los usuarios podrán hacer reservas y pedir prestados libros electrónicamente. Los administradores podrán agregar, editar y eliminar libros, autores y categorías.
