@@ -1,4 +1,11 @@
-
+# Creacion de la base de datos de Neo4J
+La base de datos ha sido creada de forma manual a base de importaciones CSV y Querrys con la consola que se puede encontrar en la pagina perteneciente a la base de datos. <br>Los CSVs son importados, al igual que el ejercicio anterior de la pagina con spring batch, de la web de Mockaroo, la cual me aporta una cantidad de posibilidades casi infinitas. Estos CSVs han sido usados para la creacion de la base de datos y los objetos de los mismos (nodos para neo4j) son completamente al azar, desde nombres hasta titulos de los libros. <br>
+<hr>
+## Links a los CSV
+Usuario.csv: https://www.mockaroo.com/e5e409b0
+Bibliotecario.csv: https://www.mockaroo.com/b32ebdd0
+Administrador.csv: https://www.mockaroo.com/eca16b10
+Libro.csv: https://www.mockaroo.com/7e4b1300
 ## Querys usadas para la creacion de la base de datos
 ```markdown
 Añadir las Categorías de los Libros
