@@ -1,0 +1,52 @@
+scalar Point
+scalar DateTime
+scalar PointInput
+type Autor {
+  escritoPorLibros: [Libro!]! @relationship(type: "ESCRITO_POR", direction: OUT)
+  nombre: String!
+}
+
+type Bibliotecario {
+  categoriaBibliotecario: String!
+  direccion: String!
+  email: String!
+  nombre: String!
+  tarjetaBibliotecaro: BigInt!
+  telefono: BigInt!
+  trabajaEnCategorias: [Categoria!]!
+  @relationship(type: "TRABAJA_EN", direction: OUT)
+}
+
+type Categoria {
+  bibliotecariosTrabajaEn: [Bibliotecario!]!
+  @relationship(type: "TRABAJA_EN", direction: IN)
+  librosPerteneceA: [Libro!]! @relationship(type: "PERTENECE_A", direction: IN)
+  nombre: String!
+  usuariosTieneGusto: [Usuario!]!
+  @relationship(type: "TIENE_GUSTO", direction: IN)
+}
+
+type Libro {
+  autor: String!
+  autorsEscritoPor: [Autor!]! @relationship(type: "ESCRITO_POR", direction: IN)
+  cantidad: BigInt!
+  categoria: String!
+  disponible: String!
+  iban: String!
+  perteneceACategorias: [Categoria!]!
+  @relationship(type: "PERTENECE_A", direction: OUT)
+  titulo: String!
+}
+
+type Usuario {
+  direccion: String!
+  email: String!
+  gusto1: String!
+  gusto2: String!
+  gusto3: String!
+  nombre: String!
+  tarjetaUsuario: BigInt!
+  telefono: BigInt!
+  tieneGustoCategorias: [Categoria!]!
+  @relationship(type: "TIENE_GUSTO", direction: OUT)
+}
