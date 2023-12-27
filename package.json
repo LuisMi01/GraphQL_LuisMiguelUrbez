@@ -1,0 +1,39 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.20.0",
+    "execa": "^8.0.1",
+    "grandstack": "^0.1.7",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^3.0.1",
+    "prettier-eslint-cli": "^8.0.1"
+  },
+  "scripts": {
+    "seedDb": "node scripts/seed.js",
+    "start": "node scripts/start-dev.js",
+    "build": "node scripts/build.js",
+    "format": "find . -name \"*.js\" | grep -v node_modules | grep -v build | xargs prettier --write",
+    "format:log": "find . -name \"*.js\" | grep -v node_modules | grep -v build | xargs prettier",
+    "inferschema:write": "node scripts/inferSchema.js"
+  },
+  "author": "Luis Miguel Urbez",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@babel/plugin-transform-class-properties": "^7.23.3"
+  }
+}
