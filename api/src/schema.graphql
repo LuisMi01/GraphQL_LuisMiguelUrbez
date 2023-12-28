@@ -1,6 +1,5 @@
-scalar Point
-scalar DateTime
-scalar PointInput
+
+
 type Autor {
   escritoPorLibros: [Libro!]! @relationship(type: "ESCRITO_POR", direction: OUT)
   nombre: String!
@@ -11,8 +10,8 @@ type Bibliotecario {
   direccion: String!
   email: String!
   nombre: String!
-  tarjetaBibliotecaro: BigInt!
-  telefono: BigInt!
+  tarjetaBibliotecaro: String!
+  telefono: String!
   trabajaEnCategorias: [Categoria!]!
   @relationship(type: "TRABAJA_EN", direction: OUT)
 }
@@ -29,7 +28,7 @@ type Categoria {
 type Libro {
   autor: String!
   autorsEscritoPor: [Autor!]! @relationship(type: "ESCRITO_POR", direction: IN)
-  cantidad: BigInt!
+  cantidad: String!
   categoria: String!
   disponible: String!
   iban: String!
@@ -45,8 +44,8 @@ type Usuario {
   gusto2: String!
   gusto3: String!
   nombre: String!
-  tarjetaUsuario: BigInt!
-  telefono: BigInt!
+  tarjetaUsuario: String!
+  telefono: String!
   tieneGustoCategorias: [Categoria!]!
   @relationship(type: "TIENE_GUSTO", direction: OUT)
 }

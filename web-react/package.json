@@ -1,6 +1,7 @@
 {
   "name": "web-react",
   "version": "0.1.0",
+  "author": "Luis Miguel Urbez Villar",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
