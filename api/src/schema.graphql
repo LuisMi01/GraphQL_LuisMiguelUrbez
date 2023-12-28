@@ -1,5 +1,4 @@
 
-
 type Autor {
   escritoPorLibros: [Libro!]! @relationship(type: "ESCRITO_POR", direction: OUT)
   nombre: String!
@@ -10,8 +9,8 @@ type Bibliotecario {
   direccion: String!
   email: String!
   nombre: String!
-  tarjetaBibliotecaro: String!
-  telefono: String!
+  tarjetaBibliotecaro: Int!
+  telefono: Int!
   trabajaEnCategorias: [Categoria!]!
   @relationship(type: "TRABAJA_EN", direction: OUT)
 }
@@ -28,7 +27,7 @@ type Categoria {
 type Libro {
   autor: String!
   autorsEscritoPor: [Autor!]! @relationship(type: "ESCRITO_POR", direction: IN)
-  cantidad: String!
+  cantidad: Int!
   categoria: String!
   disponible: String!
   iban: String!
@@ -44,8 +43,8 @@ type Usuario {
   gusto2: String!
   gusto3: String!
   nombre: String!
-  tarjetaUsuario: String!
-  telefono: String!
+  tarjetaUsuario: Int!
+  telefono: Int!
   tieneGustoCategorias: [Categoria!]!
   @relationship(type: "TIENE_GUSTO", direction: OUT)
 }

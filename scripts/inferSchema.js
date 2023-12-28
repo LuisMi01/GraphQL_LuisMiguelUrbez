@@ -1,3 +1,5 @@
+//te añade el schema de neo4j al ejecutar el script
+
 require('dotenv').config({ path: './api/.env' })
 const execa = require('execa')
 const path = require('path')
