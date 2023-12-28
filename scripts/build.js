@@ -29,7 +29,8 @@ if (templateName === 'Flutter') {
     prefixColor: 'blue',
   })
 }
-
-concurrently(jobs, concurrentOpts).catch((e) => {
-  console.error(e.message)
-})
+try {
+  concurrently(jobs, concurrentOpts);
+} catch (e) {
+  console.error(e.message);
+}
