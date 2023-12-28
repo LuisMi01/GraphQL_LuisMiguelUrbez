@@ -1,21 +1,4 @@
-# Contributor Covenant Code of Conduct
 
-## Our Pledge
-
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
-
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
-
-## Our Standards
-
-Examples of behavior that contributes to a positive environment for our
-community include:
 # Creacion de la base de datos de Neo4J
 La base de datos ha sido creada de forma manual a base de importaciones CSV y Querrys con la consola que se puede encontrar en la pagina perteneciente a la base de datos. <br>Los CSVs son importados, al igual que el ejercicio anterior de la pagina con spring batch, de la web de Mockaroo, la cual me aporta una cantidad de posibilidades casi infinitas. Estos CSVs han sido usados para la creacion de la base de datos y los objetos de los mismos (nodos para neo4j) son completamente al azar, desde nombres hasta titulos de los libros. <br>
 <hr>
@@ -156,4 +139,5 @@ MERGE (u)-[:TIENE_GUSTO]->(c)
 ### Viasualizacion de todas las relaciones hasta ahora de la biblioteca
 ![Visualizacion del Grafo](Imagenes/cuartoGrafo.png)
 
-
+### Visualizacion gráfica de los nodos
+![Visualizacion de los nodos](Imagenes/nodosArrows.png)
