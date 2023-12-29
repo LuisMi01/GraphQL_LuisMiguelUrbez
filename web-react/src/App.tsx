@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import Banner from './components/banner/Banner'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       <p>Que pasa jefe</p>
-      </header>
+      <Banner />
     </div>
   );
 }

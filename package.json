@@ -2,7 +2,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.12.1",
     "concurrently": "^8.2.2",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
@@ -37,6 +37,7 @@
     "dynamic-material-ui": "^2.0.23-beta",
     "express": "^4.18.2",
     "moment": "^2.30.1",
+    "neo4j-driver": "^5.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",
