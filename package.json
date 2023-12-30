@@ -17,7 +17,7 @@
   "scripts": {
     "seedDb": "node scripts/seed.js",
     "start": "node scripts/start-dev.js",
-    "build": "node scripts/build.js",
+    "build": "next build && next export -o build",
     "format": "find . -name \"*.js\" | grep -v node_modules | grep -v build | xargs prettier --write",
     "format:log": "find . -name \"*.js\" | grep -v node_modules | grep -v build | xargs prettier",
     "inferschema:write": "node scripts/inferSchema.js"
