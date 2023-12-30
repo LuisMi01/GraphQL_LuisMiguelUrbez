@@ -1,7 +1,6 @@
-import Image from 'next/image'
 
 export default function Home() {
   return (
-   <div>Biblioteca de Luis Miguel Urbez</div>
+   <div className="text-rose-500 text-2xl">Biblioteca de Luis Miguel Urbez</div>
   )
 }
