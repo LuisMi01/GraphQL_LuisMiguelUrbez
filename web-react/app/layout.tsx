@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import React from 'react'
-import {Nunito} from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Biblioteca | Luis Miguel Urbez',
@@ -22,3 +20,4 @@ export default function RootLayout({
     </html>
   )
 }
+
