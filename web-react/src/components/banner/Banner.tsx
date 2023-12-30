@@ -3,6 +3,9 @@
 import React from 'react';
 import Container from '../Container'
 import Categories from './Categories'
+import Logo from './Logo'
+import Search from './Search'
+import UserMenu from './UserMenu'
 
 const Banner: React.FC = () => {
   return (
@@ -12,7 +15,7 @@ const Banner: React.FC = () => {
           <div className="flex flex-row justify-between items-center gap-3 md:gap-0">
             <Logo />
             <Search />
-            <UserMenu currentUser={currentUser} />
+            <UserMenu />
           </div>
         </Container>
       </div>
