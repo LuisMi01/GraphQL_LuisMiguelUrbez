@@ -6,10 +6,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        'cool-gray': '#a7a5c6',
+        'cool-gray-2': '#8797b2',
+        'slate-gray': '#6d8a96',
+        'paynes-gray': '#5d707f',
+        'robin-egg-blue': '#66ced6',
       },
     },
   },
