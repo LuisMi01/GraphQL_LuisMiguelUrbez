@@ -5,7 +5,9 @@ import Banner from './components/Banner';
 function App() {
   return (
     <div className="App">
-      <Banner />
+      <div className="bg-black">
+        <Banner />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import '../App.css'; // Asegúrate de importar tu archivo CSS
 
 const Banner = () => {
   return (
-    <div className="flex justify-between p-10 bg-black">
+    <div className="flex row justify-between p-10 bg-black">
       <div>
         {/* Aquí puedes agregar tus dos botones */}
       </div>
