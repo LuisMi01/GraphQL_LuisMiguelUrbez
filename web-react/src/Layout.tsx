@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { Nunito} from "next/font/google";
 import React from "react";
@@ -11,7 +10,6 @@ import RegisterModal from './components/modals/RegisterModal'
 import SearchModal from './components/modals/SearchModal'
 import ToasterProvider from './providers/ToastProvider'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Biblioteca | Luis Miguel Urbez',
@@ -23,7 +21,7 @@ const font = Nunito({
 });
 
 export default async function RootLayout({
-                                           children,
+                                           children
                                          }: {
   children: React.ReactNode
 }) {
