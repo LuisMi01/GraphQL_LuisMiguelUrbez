@@ -73,7 +73,7 @@ To build the app and test it in development in desktop you will need to
 2. Pack the app with `npm run pack:dev` or `npm run pack`
 3. Drag and drop the packed tarball into Neo4j Desktop
 
-### Running the Web App
+### Running the Web Layout
 
 ```sh
 $ npm run start
