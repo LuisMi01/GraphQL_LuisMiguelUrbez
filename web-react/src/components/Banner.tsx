@@ -5,7 +5,7 @@ import uaxLogo from '../images/uaxlogo.png';
 
 const Banner = () => {
   return (
-    <div className="flex row justify-between p-5 bg-slate-gray">
+    <div className="grid grid-cols-3 grid-rows-1 p-5 bg-slate-gray">
       <div className="flex row gap-3">
         <div onClick={() => {
           window.open('https://github.com/LuisMi01/airbnb-mongodb_LuisMiguelUrbez', '_blank');
@@ -22,14 +22,21 @@ const Banner = () => {
           <img className="rounded-full object-cover" src={uaxLogo} alt={"Uax"} width={50} height={50} />
         </div>
       </div>
-      <div className="flex items-center justify-center bg-gray-100 p-4 rounded-md shadow-md">
-        <input type="text" placeholder="Buscar un libro..."
-               className="border-0 p-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
-        <button
-          className="ml-2 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-200">🔍
-        </button>
+      <div className="flex items-center justify-center ">
+        <div className="relative">
+          <input type="text" className="h-10 pl-8 pr-20 rounded-full z-0 focus:shadow focus:outline-none"
+                 placeholder="Busca un libro..." />
+          <div className="absolute top-2 right-2">
+            <button className="h-6 w-6 text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-      <div>
+      <div className="flex justify-end">
         <button
           className="bg-blue-500 text-white p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer">Iniciar
           sesión
