@@ -1,8 +1,6 @@
-import React from 'react';
-import Container from "./Container";
-import {GiBookCover} from "react-icons/gi";
-import CategoryBox from "./CategoryBox"
-import {usePathname, useSearchParams} from "next/navigation";
+'use client'
+
+import {GiBookCover, GiBookshelf, GiHeartBottle, GiAlienFire, GiCrystalBall, GiKnifeThrust, GiQuillInk, GiLifeSupport, GiAncientSword, GiCook} from "react-icons/gi";
 
 export const categories = [
   {
@@ -12,75 +10,62 @@ export const categories = [
   },
   {
     label: 'Misterio',
-    icon: GiBookCover,
+    icon: GiBookshelf,
     description: 'Libros de misterio'
   },
   {
     label: 'Romance',
-    icon: GiBookCover,
+    icon: GiHeartBottle,
     description: 'Libros de romance'
   },
   {
     label: 'Ciencia Ficción',
-    icon: GiBookCover,
+    icon: GiAlienFire,
     description: 'Libros de ciencia ficción'
   },
   {
     label: 'Fantasía',
-    icon: GiBookCover,
+    icon: GiCrystalBall,
     description: 'Libros de fantasía'
   },
   {
     label: 'Thriller',
-    icon: GiBookCover,
+    icon: GiKnifeThrust,
     description: 'Libros de thriller'
   },
   {
     label: 'Biografía',
-    icon: GiBookCover,
+    icon: GiQuillInk,
     description: 'Libros de biografía'
   },
   {
     label: 'Autoayuda',
-    icon: GiBookCover,
+    icon: GiLifeSupport,
     description: 'Libros de autoayuda'
   },
   {
     label: 'Historia',
-    icon: GiBookCover,
+    icon: GiAncientSword,
     description: 'Libros de historia'
   },
   {
     label: 'Cocina',
-    icon: GiBookCover,
+    icon: GiCook,
     description: 'Libros de cocina'
   }
 ]
 
-const Categories= () => {
-  const params = useSearchParams();
-  const category = params?.get("category");
-  const pathname = usePathname()
-
-  const isMainPage = pathname === "/";
-
-  if(!isMainPage){
-    return null;
-  }
+const Categories = () => {
   return (
-    <Container>
-      <div className="pt-3 flex flex-row items-center justify-between overflow-x-auto">
-        {categories.map((item, index) => (
-          <CategoryBox
-            key={index}
-            icon={item.icon}
-            label={item.label}
-            selected={category === item.label}
-          />
-        ))}
-      </div>
-    </Container>
+    <div className="flex flex-row justify-center space-x-4 p-3 overflow-auto">
+      {categories.map((category, index) => (
+        <div key={index} className="flex flex-col items-center space-y-2 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer w-48 h-30">
+          <category.icon className="text-5xl text-blue-500"/>
+          <div className="text-sm font-semibold">{category.label}</div>
+        </div>
+      ))}
+    </div>
   )
 }
 
-export default Categories;
+export default Categories
