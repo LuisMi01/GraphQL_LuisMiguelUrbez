@@ -1,45 +1,44 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
+import TarjetaLibro from './TarjetaLibro';
 
-// Define tu consulta GraphQL
 const GET_LIBROS = gql`
     query GetLibros {
         libros {
             titulo
+            autor
+            iban
+            disponible
         }
     }
 `;
 
-// Define una interfaz para los datos de la consulta
 interface Libro {
   titulo: string;
+  autor: string;
+  iban: string;
+  disponible: boolean;
 }
 
 interface GetLibrosData {
-  libros: Libro[]; // Cambia 'Libro' a 'libros'
+  libros: Libro[];
 }
 
 function Libros() {
-  // Utiliza el hook useQuery para hacer la consulta
   const { loading, error, data } = useQuery<GetLibrosData>(GET_LIBROS);
 
-  // Muestra un mensaje de carga mientras la consulta está en progreso
-  if (loading) return <p>Cargando...</p>;
-  // Muestra un mensaje de error si la consulta falla
+  if (loading) return <p className="justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
     console.error(error);
-    return <p>Error</p>;
+    return <p className=" justify-center align-middle bold text-4xl">Error</p>;
   }
 
-  // Muestra los libros una vez que la consulta se complete
   return (
-    <>
-      {data?.libros.map(({ titulo }) => ( // Cambia 'Libro' a 'libros'
-        <div key={titulo}>
-          <p>{titulo}</p>
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
+      {data?.libros.map((libro) => (
+        <TarjetaLibro key={libro.iban} libro={libro} />
       ))}
-    </>
+    </div>
   );
 }
 

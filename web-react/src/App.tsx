@@ -22,7 +22,6 @@ function App() {
       <hr/>
       <ApolloProvider client={client}>
         <div>
-          <h2>Mis libros 📚</h2>
           <Libros />
         </div>
       </ApolloProvider>
