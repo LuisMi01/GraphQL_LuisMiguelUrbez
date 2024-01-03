@@ -34,4 +34,8 @@ if (NEO4J_DATABASE) {
   grandstackCmdArgs.push(`${NEO4J_DATABASE}`)
 }
 
-execa.sync(grandstackCmd, grandstackCmdArgs)
+try {
+  execa.sync(grandstackCmd, grandstackCmdArgs)
+} catch (error) {
+  console.error('Error al ejecutar el comando grandstack:', error)
+}

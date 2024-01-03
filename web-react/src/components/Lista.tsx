@@ -1,24 +1,46 @@
-import { useQuery } from '@apollo/client';
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import React from 'react';
+import { useQuery, gql } from '@apollo/client';
 
-const client = new ApolloClient({
-  uri: 'https://flyby-router-demo.herokuapp.com/',
-  cache: new InMemoryCache(),
-});
+// Define tu consulta GraphQL
+const GET_LIBROS = gql`
+    query GetLibros {
+        libros {
+            titulo
+        }
+    }
+`;
 
-// const client = ...
+// Define una interfaz para los datos de la consulta
+interface Libro {
+  titulo: string;
+}
 
-client
-.query({
-  query: gql`
-      query GetLocations {
-          locations {
-              id
-              name
-              description
-              photo
-          }
-      }
-  `,
-})
-.then((result) => console.log(result));
+interface GetLibrosData {
+  libros: Libro[]; // Cambia 'Libro' a 'libros'
+}
+
+function Libros() {
+  // Utiliza el hook useQuery para hacer la consulta
+  const { loading, error, data } = useQuery<GetLibrosData>(GET_LIBROS);
+
+  // Muestra un mensaje de carga mientras la consulta está en progreso
+  if (loading) return <p>Cargando...</p>;
+  // Muestra un mensaje de error si la consulta falla
+  if (error) {
+    console.error(error);
+    return <p>Error</p>;
+  }
+
+  // Muestra los libros una vez que la consulta se complete
+  return (
+    <>
+      {data?.libros.map(({ titulo }) => ( // Cambia 'Libro' a 'libros'
+        <div key={titulo}>
+          <p>{titulo}</p>
+        </div>
+      ))}
+    </>
+  );
+}
+
+export default Libros;
