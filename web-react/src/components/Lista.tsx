@@ -17,7 +17,7 @@ interface Libro {
   titulo: string;
   autor: string;
   iban: string;
-  disponible: boolean;
+  disponible: string;
 }
 
 interface GetLibrosData {

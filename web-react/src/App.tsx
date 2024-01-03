@@ -4,7 +4,8 @@ import Banner from './components/Banner';
 import Categories from './components/Categories';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import Libros from './components/Lista'
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DetalleLibro from './components/DetalleLibro';
 
 // Crea un cliente Apollo
 const client = new ApolloClient({
@@ -21,9 +22,13 @@ function App() {
       <Categories />
       <hr/>
       <ApolloProvider client={client}>
-        <div>
-          <Libros />
-        </div>
+        <Router>
+          <Routes>
+            <Route path="/libro/:iban" element={<DetalleLibro />} />
+            <Route path="/prestamo/:iban" element={<DetalleLibro />} />
+            <Route path="/" element={<Libros />} />
+          </Routes>
+        </Router>
       </ApolloProvider>
     </div>
   );
