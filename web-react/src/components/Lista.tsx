@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import TarjetaLibro from './TarjetaLibro';
+import { useParams } from 'react-router-dom'
 
-const GET_LIBROS = gql`
-    query GetLibros {
+const GET_ALL_LIBROS = gql`
+    query GetAllLibros {
         libros {
             titulo
             autor
@@ -13,6 +14,19 @@ const GET_LIBROS = gql`
     }
 `;
 
+const GET_LIBROS_BY_CATEGORIA = gql`
+    query GetLibrosByCategoria($categoria: String!) {
+        Categoria(nombre: $categoria) {
+            nombre
+            libros {
+                titulo
+                autor
+                iban
+                disponible
+            }
+        }
+    }
+`;
 interface Libro {
   titulo: string;
   autor: string;
@@ -20,12 +34,20 @@ interface Libro {
   disponible: string;
 }
 
-interface GetLibrosData {
+interface Categoria {
+  nombre: string;
   libros: Libro[];
 }
 
+interface GetLibrosData {
+  Categoria: Categoria;
+}
+
 function Libros() {
-  const { loading, error, data } = useQuery<GetLibrosData>(GET_LIBROS);
+  const { categoria } = useParams<{ categoria?: string }>();
+  const query = categoria ? GET_LIBROS_BY_CATEGORIA : GET_ALL_LIBROS;
+  const variables = categoria ? { categoria } : undefined;
+  const { loading, error, data } = useQuery(query, { variables });
 
   if (loading) return <p className="justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
@@ -33,9 +55,11 @@ function Libros() {
     return <p className=" justify-center align-middle bold text-4xl">Error</p>;
   }
 
+  const libros = categoria ? data.Categoria.libros : data.libros;
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
-      {data?.libros.map((libro) => (
+      {libros.map((libro: Libro) => (
         <TarjetaLibro key={libro.iban} libro={libro} />
       ))}
     </div>

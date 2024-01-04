@@ -4,10 +4,10 @@ import express from 'express'
 import neo4j from 'neo4j-driver'
 import { Neo4jGraphQL } from '@neo4j/graphql'
 import dotenv from 'dotenv'
+import { startStandaloneServer } from '@apollo/server/standalone'
 
 // set environment variables from .env
 dotenv.config()
-
 const app = express()
 
 /*
@@ -48,6 +48,11 @@ const server = new ApolloServer({
   playground: true,
 })
 
+const { url } = await startStandaloneServer(server, {
+  context: async ({ req }) => ({ req }),
+  listen: { port: 4000 },
+});
+
 // Specify host, port and path for GraphQL endpoint
 const port = process.env.GRAPHQL_SERVER_PORT || 4001
 const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
@@ -61,4 +66,5 @@ server.applyMiddleware({ app, path })
 
 app.listen({ host, port, path }, () => {
   console.log(`Servidor de GraphQL listo en: http://${host}:${port}${path}`)
+  console.log(`🚀 Server ready at ${url}`);
 })

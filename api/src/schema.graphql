@@ -1,7 +1,12 @@
+
 type Libro {
-    titulo: String
-    autor: String
-    iban: String
-    disponible: String
+    autor: String!
+
+    cantidad: String!
+    categoria: String!
+    disponible: String!
+    iban: String!
+
+    titulo: String!
 }
 

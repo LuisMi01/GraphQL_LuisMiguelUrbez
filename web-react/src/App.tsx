@@ -27,6 +27,7 @@ function App() {
             <Route path="/libro/:iban" element={<DetalleLibro />} />
             <Route path="/prestamo/:iban" element={<DetalleLibro />} />
             <Route path="/" element={<Libros />} />
+            <Route path="/categoria/:categoria" element={<Libros />} />
           </Routes>
         </Router>
       </ApolloProvider>

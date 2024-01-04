@@ -6,8 +6,5 @@ import path from 'path'
  * fallback to schema.graphql if GRAPHQL_SCHEMA environment variable is not set
  */
 
-export const typeDefs = fs
-  .readFileSync(
-    process.env.GRAPHQL_SCHEMA || path.join(__dirname, 'schema.graphql')
-  )
-  .toString('utf-8')
+// Leer el esquema GraphQL desde un archivo
+const typeDefs = fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8');
