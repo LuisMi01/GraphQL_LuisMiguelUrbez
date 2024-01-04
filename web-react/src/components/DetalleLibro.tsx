@@ -37,15 +37,15 @@ const DetalleLibro = () => {
   }
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error :(</p>;
+  if (!data || !data.libro) return <p>No se encontró el libro</p>;
 
   return (
     <div>
-      <h2>{data?.libro.titulo}</h2>
-      <p>Autor: {data?.libro.autor}</p>
-      <p>IBAN: {data?.libro.iban}</p>
-      <p>Disponible: {data?.libro.disponible}</p>
+      <h2>{data.libro.titulo}</h2>
+      <p>Autor: {data.libro.autor}</p>
+      <p>IBAN: {data.libro.iban}</p>
+      <p>Disponible: {data.libro.disponible}</p>
     </div>
   );
 };
-
 export default DetalleLibro;

@@ -4,7 +4,7 @@ type Libro {
     iban: String!
     disponible: String!
 }
-
 type Query {
     libro(titulo: String!): Libro
+    libros: [Libro]
 }
