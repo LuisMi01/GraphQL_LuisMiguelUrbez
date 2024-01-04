@@ -1,7 +1,10 @@
 type Libro {
-    titulo: String
-    autor: String
-    iban: String
-    disponible: String
+    titulo: String!
+    autor: String!
+    iban: String!
+    disponible: String!
 }
 
+type Query {
+    libro(titulo: String!): Libro
+}
