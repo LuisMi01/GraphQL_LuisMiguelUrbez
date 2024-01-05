@@ -26,7 +26,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/libro/:titulo" element={<DetalleLibro />} />
-            <Route path="/prestamo/:iban" element={<PrestamoLibro />} />
+            <Route path="/prestamo/:titulo" element={<PrestamoLibro />} />
             <Route path="/" element={<Libros />} />
           </Routes>
         </Router>
