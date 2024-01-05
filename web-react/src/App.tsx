@@ -1,4 +1,4 @@
-import React from 'react';
+'use client'
 import './App.css';
 import Banner from './components/Banner';
 import Categories from './components/Categories';
@@ -10,7 +10,7 @@ import PrestamoLibro from './components/PrestamoLibro'
 
 // Crea un cliente Apollo
 const client = new ApolloClient({
-  uri: 'http://localhost:4001/graphql', // reemplaza esto con la URL de tu servidor GraphQL
+  uri: 'http://localhost:4001/graphql', 
   cache: new InMemoryCache()
 });
 
