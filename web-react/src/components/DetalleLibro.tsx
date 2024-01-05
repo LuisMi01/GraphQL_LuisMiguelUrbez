@@ -35,9 +35,9 @@ const DetalleLibro = () => {
   if (!titulo) {
     return <p>Error: No se proporcionó un titulo para la busqueda del libro</p>;
   }
-  if (loading) return <p>Cargando...</p>;
-  if (error) return <p>Error :(</p>;
-  if (!data || !data.libro) return <p>No se encontró el libro</p>;
+  if (loading) return <p className='justify-center align-middle bold text-4xl'>Cargando...</p>;
+  if (error) return <p className='justify-center align-middle bold text-4xl'>Error en la base de datos</p>;
+  if (!data || !data.libro) return <p className='justify-center align-middle bold text-4xl'>No se encontró el libro</p>;
 
   return (
     <div>

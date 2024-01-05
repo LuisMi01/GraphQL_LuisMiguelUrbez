@@ -30,7 +30,7 @@ function Libros() {
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
     console.error(error);
-    return <p className=" justify-center align-middle bold text-4xl">Error</p>;
+    return <p className="justify-center align-middle bold text-4xl">Error</p>;
   }
 
   return (
