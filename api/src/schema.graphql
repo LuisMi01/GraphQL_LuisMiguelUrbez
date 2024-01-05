@@ -2,6 +2,7 @@ type Libro {
     titulo: String!
     autor: String!
     iban: String!
+    categoria: String!
     disponible: String!
 }
 type Query {

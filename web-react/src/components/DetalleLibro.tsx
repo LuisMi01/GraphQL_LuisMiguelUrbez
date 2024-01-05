@@ -1,4 +1,4 @@
-import React from 'react';
+'use client'
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
@@ -9,6 +9,7 @@ const GET_LIBRO_DETALLE = gql`
             autor
             iban
             disponible
+            categoria
         }
     }
 `;
@@ -49,6 +50,8 @@ function DetalleLibro() {
           <p className="text-xl mb-2"> {data.libro.autor}</p>
           <p className="text-xl mb-2 font-bold">ISBN</p>
           <p className="text-xl mb-2">{data.libro.iban}</p>
+          <p>Categoria: </p>
+          <p className="text-xl mb-2">{data.libro.categoria}</p>
           <p className='text-xl mb-2 font-bold'>Disposición:</p>
           <p className="text-xl mb-4">
              {data.libro.disponible}
@@ -71,7 +74,7 @@ function DetalleLibro() {
           Volver a la página principal
         </Link>
         <Link to={`/prestamo/${titulo.replace(/\s/g, '_')}`} className="text-center bg-green-500 hover:bg-green-700 shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 rounded-lg w-full">
-          Pedir un préstamo
+          Solicitar prestamo a bibliotecario
         </Link>
       </div>
     </div>
