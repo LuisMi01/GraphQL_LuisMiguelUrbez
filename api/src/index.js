@@ -3,10 +3,10 @@ import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import neo4j from 'neo4j-driver'
 import dotenv from 'dotenv'
-import { startStandaloneServer } from '@apollo/server/standalone'
 
 // set environment variables from .env
 dotenv.config()
+
 const app = express()
 
 /*
@@ -56,29 +56,21 @@ const resolvers = {
  * instance into the context object so it is available in the
  * generated resolvers to connect to the database.
  */
-(async () => {
-  const server = new ApolloServer({
-    context: {
-      driver,
-      driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
-    },
-    typeDefs,
-    resolvers,
-    introspection: true,
-    playground: true,
-  });
+const server = new ApolloServer({
+  context: {
+    driver,
+    driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
+  },
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true,
+})
 
-  await server.start();
-
-  const { url } = startStandaloneServer(server, {
-    context: async ({ req }) => ({ req }),
-    listen: { port: 4000 },
-  });
-
-  // Specify host, port and path for GraphQL endpoint
-  const port = process.env.GRAPHQL_SERVER_PORT || 4001
-  const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
-  const host = process.env.GRAPHQL_SERVER_HOST || 'localhost'
+// Specify host, port and path for GraphQL endpoint
+const port = process.env.GRAPHQL_SERVER_PORT || 4001
+const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
+const host = process.env.GRAPHQL_SERVER_HOST || 'localhost'
 
 /*
  * Optionally, apply Express middleware for authentication, etc
@@ -89,8 +81,3 @@ server.applyMiddleware({ app, path })
 app.listen({ host, port, path }, () => {
   console.log(`Servidor de GraphQL listo en: http://${host}:${port}${path}`)
 })
-
-
-})();
-
-

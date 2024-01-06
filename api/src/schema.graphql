@@ -54,4 +54,3 @@ type Query {
   libros: [Libro]
   librosPorCategoria(nombre: String!): [Libro]
 }
-
