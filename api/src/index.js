@@ -39,6 +39,14 @@ const resolvers = {
       session.close();
       return result.records.map(record => record.get('l').properties);
     },
+    librosPorCategoria: async (_parent, args, context, _info) => {
+      const session = context.driver.session();
+      const { nombre } = args;
+      const query = 'MATCH (l:Libro)-[:PERTENECE_A]->(:Categoria { nombre: $nombre }) RETURN l';
+      const result = await session.run(query, { nombre });
+      session.close();
+      return result.records.map(record => record.get('l').properties);
+    },
   },
 };
 

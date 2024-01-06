@@ -19,6 +19,7 @@ interface Libro {
   autor: string;
   iban: string;
   disponible: string;
+  categoria: string;
 }
 
 interface GetLibroDetalleData {
@@ -50,7 +51,7 @@ function DetalleLibro() {
           <p className="text-xl mb-2"> {data.libro.autor}</p>
           <p className="text-xl mb-2 font-bold">ISBN</p>
           <p className="text-xl mb-2">{data.libro.iban}</p>
-          <p>Categoria: </p>
+          <p className="text-xl mb-2 font-bold">Categoria: </p>
           <p className="text-xl mb-2">{data.libro.categoria}</p>
           <p className='text-xl mb-2 font-bold'>Disposición:</p>
           <p className="text-xl mb-4">

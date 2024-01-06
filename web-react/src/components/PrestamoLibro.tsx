@@ -1,6 +1,7 @@
 'use client'
 import { useParams, Link } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
+import React, { useState } from 'react';
 
 const GET_LIBRO_DETALLE = gql`
     query GetLibroDetalle($titulo: String!) {
@@ -30,6 +31,9 @@ function PrestamoLibro() {
     variables: { titulo },
     skip: !titulo,
   });
+
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   if (!titulo) {
     return <p className='flex center justify-center bold text-4xl'>Error: No se proporcionó un titulo para la busqueda del libro</p>;
@@ -69,10 +73,43 @@ function PrestamoLibro() {
       <Link to="/" className="mr-4 bg-blue-500 hover:bg-blue-700 text-center shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 rounded-lg w-full">
           Volver a la página principal
         </Link>
-        <Link to="/" className="text-center bg-green-500 hover:bg-green-700 shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 rounded-lg w-full">
-          Solicitar préstamo
-        </Link>
       </div>
+
+      <div className="bg-white rounded-lg shadow p-6 w-full mt-4">
+        <h2 className="text-3xl font-bold mb-4 text-center">Solicitar préstamo</h2>
+        <form>
+          <div className="mb-4">
+            <label htmlFor="startDate" className="block mb-2 text-sm font-bold text-gray-700">
+              Fecha de inicio
+            </label>
+            <input
+              type="date"
+              id="startDate"
+              name="startDate"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="endDate" className="block mb-2 text-sm font-bold text-gray-700">
+              Fecha de fin
+            </label>
+            <input
+              type="date"
+              id="endDate"
+              name="endDate"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg w-full">
+            Solicitar préstamo
+          </button>
+        </form>
+      </div>
+
     </div>
   );
 };
