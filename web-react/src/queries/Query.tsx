@@ -1,12 +1,12 @@
 import { gql } from '@apollo/client';
 
 export const GET_LIBROS_CATEGORIA = gql`
-    query GetLibrosCategoria($categoria: String!) {
-        libros(categoria: $categoria) {
-            titulo
-            autor
-            iban
-            disponible
+    query GetLibrosCategoria($nombre: String!) {
+        librosPorCategoria(nombre: $nombre) {
+        titulo
+        autor
+        iban
+        disponible
         }
     }
 `;
