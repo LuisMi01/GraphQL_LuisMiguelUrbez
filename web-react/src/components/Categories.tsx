@@ -1,6 +1,6 @@
 'use client'
-
 import {GiBookCover, GiBookshelf, GiHeartBottle, GiAlienFire, GiCrystalBall, GiKnifeThrust, GiQuillInk, GiLifeSupport, GiAncientSword, GiCook} from "react-icons/gi";
+import { Link } from 'react-router-dom';
 
 export const categories = [
   {
@@ -55,17 +55,22 @@ export const categories = [
   }
 ]
 
+
 const Categories = () => {
+
   return (
-    <div className="flex flex-row justify-center space-x-4 p-3 overflow-auto">
+    <div className="flex flex-row space-x-4 p-3 overflow-auto">
       {categories.map((category, index) => (
-        <div key={index} className="flex flex-col items-center space-y-2 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer w-48 h-30">
-          <category.icon className="text-5xl text-blue-500"/>
-          <div className="text-sm font-semibold">{category.label}</div>
-        </div>
+        <Link to={`/categoria/${category.label}`} key={index}>
+          <div className="flex flex-col items-center  p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer w-40 h-30">
+            <category.icon className="text-5xl text-blue-500"/>
+            <div className="text-sm font-semibold">{category.label}</div>
+          </div>
+        </Link>
       ))}
     </div>
   )
 }
+
 
 export default Categories

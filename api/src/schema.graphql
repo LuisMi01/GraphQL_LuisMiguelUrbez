@@ -1,6 +1,65 @@
+<<<<<<< HEAD
+
+type Autor {
+  escritoPorLibros: [Libro!]!
+  nombre: String!
+}
+
+type Bibliotecario {
+  categoriaBibliotecario: String!
+  direccion: String!
+  email: String!
+  nombre: String!
+  tarjetaBibliotecaro: Int!
+  telefono: Int!
+  trabajaEnCategorias: [Categoria!]!
+
+}
+
+type Categoria {
+  bibliotecariosTrabajaEn: [Bibliotecario!]!
+ 
+  librosPerteneceA: [Libro!]!
+  nombre: String!
+  usuariosTieneGusto: [Usuario!]!
+
+}
+
+type Libro {
+  autor: String!
+  autorsEscritoPor: [Autor!]!
+  cantidad: Int!
+  categoria: String!
+  disponible: String!
+  iban: String!
+  perteneceACategorias: [Categoria!]!
+  
+  titulo: String!
+}
+
+type Usuario {
+  direccion: String!
+  email: String!
+  gusto1: String!
+  gusto2: String!
+  gusto3: String!
+  nombre: String!
+  tarjetaUsuario: Int!
+  telefono: Int!
+  tieneGustoCategorias: [Categoria!]!
+  
+}
+
+type Query {
+  libro(titulo: String!): Libro
+  libros: [Libro]
+  librosPorCategoria(nombre: String!): [Libro]
+}
+=======
 type Libro {
     titulo: String
     disponible: String
     iban: String
     autor: String
 }
+>>>>>>> main
