@@ -4,10 +4,14 @@ import Banner from './components/Banner';
 import Categories from './components/Categories';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import Libros from './components/Lista'
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DetalleLibro from './components/DetalleLibro';
 import PrestamoLibro from './components/PrestamoLibro'
 import LibrosCategoria from './components/LibrosCategorias';
+=======
+
+>>>>>>> main
 
 // Crea un cliente Apollo
 const client = new ApolloClient({
@@ -20,6 +24,7 @@ function App() {
   return (
     <div className="bg-robin-egg-blue min-h-screen">
       <ApolloProvider client={client}>
+<<<<<<< HEAD
         <Router>
           <Banner />
           <Categories />
@@ -31,6 +36,11 @@ function App() {
             <Route path="/" element={<Libros />} />
           </Routes>
         </Router>
+=======
+        <div>
+          <Libros />
+        </div>
+>>>>>>> main
       </ApolloProvider>
     </div>
   );

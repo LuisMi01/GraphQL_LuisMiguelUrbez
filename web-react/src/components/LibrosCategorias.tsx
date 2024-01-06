@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_LIBROS_CATEGORIA } from '../queries/Query';
-import TarjetaLibro from './TarjetaLibro';
+import TarjetaLibro from '../components/TarjetaLibro';
 
 interface Libro {
     id: string;
