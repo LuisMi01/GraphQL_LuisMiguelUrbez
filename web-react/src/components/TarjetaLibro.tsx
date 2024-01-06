@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 interface Libro {
   titulo: string;
@@ -7,12 +6,9 @@ interface Libro {
   iban: string;
   disponible: string;
 }
-interface TarjetaLibroProps {
-  libro: Libro;
-  link: string;
-}
 
-const TarjetaLibro: React.FC<TarjetaLibroProps> = ({ libro, link }) => {
+
+function TarjetaLibro({ libro }: { libro: Libro }) {
   return (
     <div className="m-4 transition-all duration-200 ease-in-out transform hover:scale-105">
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white w-70 h-80 flex flex-col">
@@ -22,20 +18,10 @@ const TarjetaLibro: React.FC<TarjetaLibroProps> = ({ libro, link }) => {
             <hr />
             <p className="text-gray-700 text-base">{libro.autor}</p>
             <p className="text-gray-700 text-base">{libro.iban}</p>
-            <p className="text-gray-700 text-base">{libro.disponible} 
-            <span 
-              style={{
-                display: 'inline-block',
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                backgroundColor: libro.disponible === 'Disponible' ? 'green' : 'red',
-                marginLeft: '5px',
-              }}
-            /></p>
+            <p className="text-gray-700 text-base">{libro.disponible}</p>
           </div>
           <div className="flex flex-col space-y-2">
-            <Link to={link} className="transition-all duration-200 ease-in-out transform hover:scale-105">
+            <Link to={`/libro/${libro.iban}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">
               <button
                 className="w-full bg-blue-500 text-white p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer">Más información
               </button>
