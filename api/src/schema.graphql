@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 type Autor {
   escritoPorLibros: [Libro!]!
@@ -55,11 +54,4 @@ type Query {
   libros: [Libro]
   librosPorCategoria(nombre: String!): [Libro]
 }
-=======
-type Libro {
-    titulo: String
-    disponible: String
-    iban: String
-    autor: String
-}
->>>>>>> main
+
