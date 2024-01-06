@@ -39,7 +39,7 @@ function Libros() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
       {data?.libros.map((libro) => (
-        <TarjetaLibro key={libro.iban} libro={libro} link={`/libro/${libro.titulo.replace(/\s/g, '_')}`} />
+        <TarjetaLibro key={libro.titulo} libro={libro} link={`/libro/${libro.titulo.replace(/\s/g, '_')}`} />
       ))}
     </div>
   );

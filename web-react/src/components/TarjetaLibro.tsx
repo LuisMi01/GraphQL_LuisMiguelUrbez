@@ -28,12 +28,12 @@ function TarjetaLibro({ libro, link }: TarjetaLibroProps) {
             <p className="text-gray-700 text-base">{libro.disponible}</p>
           </div>
           <div className="flex flex-col space-y-2">
-            <Link to={`/libro/${libro.iban}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">
+            <Link to={`/libro/${libro.titulo}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">
               <button
                 className="w-full bg-blue-500 text-white p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer">Más información
               </button>
             </Link>
-            <Link to={`/prestamo/${libro.iban}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">
+            <Link to={`/prestamo/${libro.titulo}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">
             <button
               className="w-full bg-green-500 text-white p-2 rounded shadow-md hover:shadow-xl transition cursor-pointer">Pedir prestamo
             </button>

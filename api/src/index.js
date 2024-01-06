@@ -22,6 +22,7 @@ const driver = neo4j.driver(
   )
 )
 
+
 const resolvers = {
   Query: {
     libro: async (_parent, args, context, _info) => {
@@ -56,28 +57,36 @@ const resolvers = {
  * instance into the context object so it is available in the
  * generated resolvers to connect to the database.
  */
-const server = new ApolloServer({
-  context: {
-    driver,
-    driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
-  },
-  typeDefs,
-  resolvers,
-  introspection: true,
-  playground: true,
-})
 
-// Specify host, port and path for GraphQL endpoint
-const port = process.env.GRAPHQL_SERVER_PORT || 4001
-const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
-const host = process.env.GRAPHQL_SERVER_HOST || 'localhost'
+(async () => {
 
-/*
- * Optionally, apply Express middleware for authentication, etc
- * This also also allows us to specify a path for the GraphQL endpoint
- */
-server.applyMiddleware({ app, path })
+  const server = new ApolloServer({
+    context: {
+      driver,
+      driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
+    },
+    typeDefs,
+    resolvers,
+    introspection: true,
+    playground: true,
+  })
 
-app.listen({ host, port, path }, () => {
-  console.log(`Servidor de GraphQL listo en: http://${host}:${port}${path}`)
-})
+  // Specify host, port and path for GraphQL endpoint
+  const port = process.env.GRAPHQL_SERVER_PORT || 4001
+  const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
+  const host = process.env.GRAPHQL_SERVER_HOST || 'localhost'
+
+  /*
+  * Optionally, apply Express middleware for authentication, etc
+  * This also also allows us to specify a path for the GraphQL endpoint
+  */
+
+  await server.start()
+
+  server.applyMiddleware({ app, path })
+
+  app.listen({ host, port, path }, () => {
+    console.log(`Servidor de GraphQL listo en: http://${host}:${port}${path}`)
+  })
+
+})()

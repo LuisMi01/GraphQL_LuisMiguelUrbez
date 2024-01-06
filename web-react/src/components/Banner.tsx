@@ -38,7 +38,7 @@ function Banner() {
 
 
       <div className="flex items-center justify-center ">
-        <div className="relative" onSubmit={manejarEnvio}>
+        <form className="relative" onSubmit={manejarEnvio}>
           <input value={busqueda} onChange={manejarCambio}  type="text" className="h-10 pl-8 pr-20 rounded-full z-0 focus:shadow focus:outline-none"
                  placeholder="Busca un libro..." />
           <div className="absolute top-2 right-2">
@@ -49,7 +49,7 @@ function Banner() {
               </svg>
             </button>
           </div>
-        </div>
+        </form>
       </div>
 
 
