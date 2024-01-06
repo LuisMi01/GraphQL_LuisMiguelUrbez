@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import TarjetaLibro from './TarjetaLibro';
 
@@ -25,8 +25,11 @@ interface GetLibrosData {
 }
 
 function Libros() {
-  const { loading, error, data } = useQuery<GetLibrosData>(GET_LIBROS);
-
+  const { loading, error, data, refetch } = useQuery<GetLibrosData>(GET_LIBROS);
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+  
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
     console.error(error);
