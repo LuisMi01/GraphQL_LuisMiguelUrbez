@@ -59,7 +59,7 @@ const resolvers = {
  * generated resolvers to connect to the database.
  */
 
-/*(async () => {
+(async () => {
 
   const server = new ApolloServer({
     context: {
@@ -70,8 +70,9 @@ const resolvers = {
     resolvers,
     introspection: true,
     playground: true,
-  })*/
+  })
 
+  /*
   const server = new ApolloServer({
     context: {
       driver: neo4j.driver(
@@ -93,8 +94,8 @@ const resolvers = {
 
   app.use('/api/graphql', microHandler(handler));
   
-  export default app;
-  /*
+  export default app;*/
+  
   const port = process.env.GRAPHQL_SERVER_PORT || 4001
   const path = process.env.GRAPHQL_SERVER_PATH || '/graphql'
   const host = process.env.GRAPHQL_SERVER_HOST || 'localhost'
@@ -108,4 +109,4 @@ const resolvers = {
     console.log(`Servidor de GraphQL listo en: http://${host}:${port}${path}`)
   })
 
-})()*/
+})()
