@@ -16,7 +16,10 @@ export const GET_AUTORES = gql`
     autores {
         nombre
         escritoPorLibros {
-        titulo
+            titulo
+            autor
+            iban
+            disponible
         }
     }
     }

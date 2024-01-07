@@ -1,6 +1,6 @@
 
 type Autor {
-  escritoPorLibros: [Libro!]!
+  escritoPorLibros: [Libro]
   nombre: String!
 }
 

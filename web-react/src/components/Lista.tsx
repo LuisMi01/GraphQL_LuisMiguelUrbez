@@ -23,40 +23,45 @@ interface GetLibrosData {
 }
 
 interface Autor{
-  escritoPorLibros: [Libro]
   nombre: string
   autores: [Autor]
-}
-
-interface GetBuscadorData{
-  libros: Libro[]
-  autores: Autor[]
+  escritoPorLibros: [Libro]
 
 }
+
 
 interface GetAutoresData {
   autores: Autor[];
 }
 
+
 function ListaAutores() {
   const { loading, error, data } = useQuery<GetAutoresData>(GET_AUTORES);
+  const [autorSeleccionado, setAutorSeleccionado] = useState<string | null>(null);
 
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
     console.error(error);
     return <p className="flex center justify-center align-middle bold text-4xl">Error</p>;
   }
+
   return (
     <div>
       <ul>
-        {data?.autores.map((autor) => (
-          <li key={autor.nombre}>{autor.nombre}</li>
+        {data?.autores.map((autor, index) => (
+          <li key={index}>
+            <button onClick={() => setAutorSeleccionado(autorSeleccionado === autor.nombre ? null : autor.nombre)}>
+              {autor.nombre}
+            </button>
+            {autorSeleccionado === autor.nombre && autor.escritoPorLibros.map((libro) => (
+              <TarjetaLibro key={libro.titulo} libro={libro} link={`/libro/${libro.titulo.replace(/\s/g, '_')}`} />
+            ))}
+          </li>
         ))}
       </ul>
     </div>
   );
 }
-
 
 function Buscador() {
   const [opcion, setOpcion] = useState('libros');

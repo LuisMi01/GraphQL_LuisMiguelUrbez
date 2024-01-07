@@ -51,10 +51,17 @@ const resolvers = {
     },
     autores: async (_parent, _args, context, _info) => {
       const session = context.driver.session();
-      const query = 'MATCH (a:Autor) RETURN a';
+      const query = 'MATCH (a:Autor)-[:ESCRITO_POR]->(l:Libro) RETURN a, collect(l) as libros';
       const result = await session.run(query);
       session.close();
-      return result.records.map(record => record.get('a').properties);
+      return result.records.map(record => {
+        const autor = record.get('a').properties;
+        const libros = record.get('libros').map(libro => libro.properties);
+        return {
+          ...autor,
+          escritoPorLibros: libros,
+        };
+      });
     },
   },
 };
