@@ -25,7 +25,18 @@ function TarjetaLibro({ libro, link }: TarjetaLibroProps) {
             <hr />
             <p className="text-gray-700 text-base">{libro.autor}</p>
             <p className="text-gray-700 text-base">{libro.iban}</p>
-            <p className="text-gray-700 text-base">{libro.disponible}</p>
+            <p className="text-gray-700 text-base">{libro.disponible}
+              <span 
+                style={{
+                  display: 'inline-block',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '50%',
+                  backgroundColor: libro.disponible === 'Disponible' ? 'green' : 'red',
+                  marginLeft: '5px',
+                }}
+              />
+            </p>
           </div>
           <div className="flex flex-col space-y-2">
             <Link to={`/libro/${libro.titulo}`} className="transition-all duration-200 ease-in-out transform hover:scale-105">

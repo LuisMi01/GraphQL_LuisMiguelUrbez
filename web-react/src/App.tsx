@@ -1,13 +1,16 @@
 'use client'
 import './App.css';
 import Banner from './components/Banner';
-import Categories from './components/Categories';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import Buscador from './components/Lista'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DetalleLibro from './components/DetalleLibro';
 import PrestamoLibro from './components/PrestamoLibro'
 import LibrosCategoria from './components/LibrosCategorias';
+import Categories, { CategoriaContext } from './components/Categories';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 // Crea un cliente Apollo
 const client = new ApolloClient({
@@ -15,13 +18,29 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+
 function App() {
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
+
+
+  const { nombre } = useParams();
+
+  useEffect(() => {
+    if (nombre) {
+      setCategoriaSeleccionada(nombre);
+    } else {
+      setCategoriaSeleccionada('');
+    }
+  }, [nombre]);
+
   return (
     <div className="bg-robin-egg-blue min-h-screen">
       <ApolloProvider client={client}>
         <Router>
           <Banner />
-          <Categories />
+          <CategoriaContext.Provider value={{ categoriaSeleccionada, setCategoriaSeleccionada }}>
+            <Categories />
+          </CategoriaContext.Provider>
           <hr/>
           <Routes>
             <Route path="/libro/:titulo" element={<DetalleLibro />} />

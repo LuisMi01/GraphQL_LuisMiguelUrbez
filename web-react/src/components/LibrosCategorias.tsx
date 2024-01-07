@@ -2,7 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_LIBROS_CATEGORIA } from '../queries/Query';
 import TarjetaLibro from '../components/TarjetaLibro';
-import { useState } from 'react';
+import React, { useContext } from 'react';
+import { CategoriaContext } from './Categories';
 
 interface Libro {
     id: string;
@@ -12,16 +13,22 @@ interface Libro {
     disponible: string;
 }
 
+
+
+
 function LibrosCategoria() {
   const { nombre } = useParams<{ nombre: string }>();
   const navigate = useNavigate();
   const { loading, error, data } = useQuery(GET_LIBROS_CATEGORIA, {
-  variables: { nombre },
+    variables: { nombre },
   });
 
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(false);
+  const { categoriaSeleccionada, setCategoriaSeleccionada } = useContext(CategoriaContext);
 
-
+  const handleDeleteCategory = () => {
+    setCategoriaSeleccionada('');
+    navigate('/');
+  };
 
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
@@ -29,13 +36,9 @@ function LibrosCategoria() {
     return <p className="justify-center align-middle bold text-4xl">Error</p>;
   }
  
-  const volverALaListaPrincipal = () => {
-    setCategoriaSeleccionada(false); // resetear la categoría seleccionada
-    navigate('/');
-  };
   return (
     <div>
-      <button className={`mr-4 bg-red-500 hover:bg-red-700 text-center shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 m-3 rounded-lg w-full ${categoriaSeleccionada ? 'bg-gray-600' : ''}`} onClick={volverALaListaPrincipal}>Eliminar categoría</button>
+      <button className="mr-4 bg-red-500 hover:bg-red-700 text-center shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 m-3 rounded-lg w-full" onClick={handleDeleteCategory}>Eliminar categoría</button>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center">
         {data?.librosPorCategoria?.map((libro: Libro) => (
             <TarjetaLibro key={libro.iban} libro={libro} link={`/libro/${libro.titulo.replace(/\s/g, '_')}`} />
@@ -45,6 +48,7 @@ function LibrosCategoria() {
   );
 
 }
+
 
 
 export default LibrosCategoria;
