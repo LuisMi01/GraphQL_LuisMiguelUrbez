@@ -1,27 +1,73 @@
-import React, { useEffect } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
 import TarjetaLibro from './TarjetaLibro';
-
-const GET_LIBROS = gql`
-    query GetLibros {
-        libros {
-            titulo
-            autor
-            iban
-            disponible
-        }
-    }
-`;
+import { GET_AUTORES, GET_LIBROS } from '../queries/Query';
 
 interface Libro {
-  titulo: string;
-  autor: string;
-  iban: string;
-  disponible: string;
+  autor: string
+  cantidad: string
+  categoria: string
+  disponible: string
+  iban: string
+  titulo: string
+}
+interface Categoria{
+  librosPerteneceA: [Libro]
+  nombre: string
 }
 
 interface GetLibrosData {
   libros: Libro[];
+  perteneceACategorias: [Categoria]
+  autorsEscritoPor: [Autor]
+}
+
+interface Autor{
+  escritoPorLibros: [Libro]
+  nombre: string
+  autores: [Autor]
+}
+
+interface GetBuscadorData{
+  libros: Libro[]
+  autores: Autor[]
+
+}
+
+interface GetAutoresData {
+  autores: Autor[];
+}
+
+function ListaAutores() {
+  const { loading, error, data } = useQuery<GetAutoresData>(GET_AUTORES);
+
+  if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
+  if (error) {
+    console.error(error);
+    return <p className="flex center justify-center align-middle bold text-4xl">Error</p>;
+  }
+  return (
+    <div>
+      <ul>
+        {data?.autores.map((autor) => (
+          <li key={autor.nombre}>{autor.nombre}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+function Buscador() {
+  const [opcion, setOpcion] = useState('libros');
+
+  return (
+    <div>
+      <button onClick={() => setOpcion('libros')}>Buscar por libros</button>
+      <button onClick={() => setOpcion('autores')}>Buscar por autores</button>
+      {opcion === 'libros' ? <Libros /> : <ListaAutores />}
+    </div>
+  );
 }
 
 function Libros() {
@@ -33,7 +79,7 @@ function Libros() {
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {
     console.error(error);
-    return <p className="justify-center align-middle bold text-4xl">Error</p>;
+    return <p className="flex center justify-center align-middle bold text-4xl">Error</p>;
   }
 
   return (
@@ -45,4 +91,5 @@ function Libros() {
   );
 }
 
-export default Libros;
+
+export default Buscador;

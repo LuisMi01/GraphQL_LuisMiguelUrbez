@@ -53,4 +53,5 @@ type Query {
   libro(titulo: String!): Libro
   libros: [Libro]
   librosPorCategoria(nombre: String!): [Libro]
+  autores: [Autor]
 }

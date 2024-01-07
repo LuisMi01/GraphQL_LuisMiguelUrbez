@@ -3,7 +3,7 @@ import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import neo4j from 'neo4j-driver'
 import dotenv from 'dotenv'
-import { microHandler } from 'apollo-server-micro'
+
 
 // set environment variables from .env
 dotenv.config()
@@ -48,6 +48,13 @@ const resolvers = {
       const result = await session.run(query, { nombre });
       session.close();
       return result.records.map(record => record.get('l').properties);
+    },
+    autores: async (_parent, _args, context, _info) => {
+      const session = context.driver.session();
+      const query = 'MATCH (a:Autor) RETURN a';
+      const result = await session.run(query);
+      session.close();
+      return result.records.map(record => record.get('a').properties);
     },
   },
 };

@@ -3,7 +3,7 @@ import './App.css';
 import Banner from './components/Banner';
 import Categories from './components/Categories';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import Libros from './components/Lista'
+import Buscador from './components/Lista'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DetalleLibro from './components/DetalleLibro';
 import PrestamoLibro from './components/PrestamoLibro'
@@ -27,7 +27,7 @@ function App() {
             <Route path="/libro/:titulo" element={<DetalleLibro />} />
             <Route path="/prestamo/:titulo" element={<PrestamoLibro />} />
             <Route path='/categoria/:nombre' element={<LibrosCategoria />} />
-            <Route path="/" element={<Libros />} />
+            <Route path="/" element={<Buscador />} />
           </Routes>
         </Router>
       </ApolloProvider>
