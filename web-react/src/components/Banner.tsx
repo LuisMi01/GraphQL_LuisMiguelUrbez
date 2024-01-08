@@ -68,14 +68,10 @@ function Banner() {
 
 
       <div className="flex justify-end">
-      {usuario ? (
-        <p>Bienvenido, {usuario.nombre}</p>
-      ) : (
-        <>
+       <>
           <InicioSesion/>
           <Registro />
         </>
-      )}
     </div>
     </div>
   );

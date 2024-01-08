@@ -89,21 +89,18 @@ const resolvers = {
         email,
         contrasena: contrasenaEncriptada,
         rol
-      });
-  
+      });  
       return usuario;
     },
-    iniciarSesion: async (_parent, { email, contrasena }, { models }) => {
-      console.log("Iniciar mutación iniciarSesion");
-      console.log("Argumentos:", { email, contrasena });
-    
+    iniciarSesion: async (_parent, { email, contrasena }, { models }) => { 
       // Verificar el usuario y la contraseña
       const usuario = await models.Usuario.verificarContrasena(email, contrasena);
     
       if (!usuario) {
         throw new Error('No existe un usuario con ese correo electrónico y contraseña' + email + contrasena);
       }
-    
+      console.log("Iniciar mutación iniciarSesion");
+      console.log("Argumentos:", { email, contrasena });
       return usuario;
     },
   },

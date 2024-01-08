@@ -7,6 +7,7 @@ function InicioSesion() {
         onCompleted: (data) => {
           localStorage.setItem('usuario', JSON.stringify(data.iniciarSesion));
           setMostrarFormulario(false);
+          alert("Sesion inciada: " + email)
         },
       });
   const [email, setEmail] = useState('');

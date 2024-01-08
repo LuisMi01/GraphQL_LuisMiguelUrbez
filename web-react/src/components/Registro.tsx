@@ -8,6 +8,7 @@ function Registro() {
     onCompleted: (data) => {
       localStorage.setItem('usuario', JSON.stringify(data.registrarUsuario));
       setMostrarFormulario(false);
+      alert("Usuario registrado: " + email)
     },
   });  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
@@ -18,9 +19,9 @@ function Registro() {
   const manejarEnvio = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     registrarUsuario({ variables: { nombre, email, contrasena, rol } });
-  };
 
-  
+  };  
+
 
   return (
     <>
