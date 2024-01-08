@@ -32,6 +32,7 @@ function App() {
       setCategoriaSeleccionada('');
     }
   }, [nombre]);
+  
 
   return (
     <div className="bg-robin-egg-blue min-h-screen">
