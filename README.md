@@ -1,5 +1,7 @@
 # Ejercicio programacion concurrente con GraphQL de Luis Miguel Urbez
 
+**La explicación mas detallada del proyecto puede encontrarse en la documentacion .pdf que hay en la raiz del mismo, para entenderlo no dudes en comprobarla y leerla**
+
 ## Paginas de interés
 
 **Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio**
