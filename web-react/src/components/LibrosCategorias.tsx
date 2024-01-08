@@ -23,7 +23,7 @@ function LibrosCategoria() {
     variables: { nombre },
   });
 
-  const { categoriaSeleccionada, setCategoriaSeleccionada } = useContext(CategoriaContext);
+  const { setCategoriaSeleccionada } = useContext(CategoriaContext);
 
   const handleDeleteCategory = () => {
     setCategoriaSeleccionada('');

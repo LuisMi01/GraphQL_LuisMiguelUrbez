@@ -93,6 +93,8 @@ function Libros() {
   useEffect(() => {
     refetch();
   }, [refetch]);
+
+  
   
   if (loading) return <p className="flex center justify-center align-middle bold text-4xl">Cargando...</p>;
   if (error) {

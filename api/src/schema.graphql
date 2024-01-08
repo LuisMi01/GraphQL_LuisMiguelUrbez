@@ -46,7 +46,8 @@ type Usuario {
   tarjetaUsuario: Int!
   telefono: Int!
   tieneGustoCategorias: [Categoria!]!
-  
+  rol: String! # nuevo campo para el rol del usuario
+  contrasena: String! # nuevo campo para la contraseña del usuario
 }
 
 type Query {
@@ -54,4 +55,9 @@ type Query {
   libros: [Libro]
   librosPorCategoria(nombre: String!): [Libro]
   autores: [Autor]
+}
+
+type Mutation {
+  registrarUsuario(nombre: String!, email: String!, contrasena: String!, rol: String!): Usuario!
+  iniciarSesion(email: String!, contrasena: String!): String! # Esto podría devolver un token de autenticación
 }
