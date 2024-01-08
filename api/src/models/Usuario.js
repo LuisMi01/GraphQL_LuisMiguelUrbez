@@ -22,6 +22,14 @@ class Usuario {
       session.close();
       return result.records[0] ? result.records[0].get('u').properties : null;
     }
+
+    async verificarContrasena(email, contrasena) {
+      const usuario = await this.findOne(email);
+      if (usuario && usuario.contrasena === contrasena) {
+        return usuario;
+      }
+      return null;
+    }
   }
   
   module.exports = Usuario;

@@ -36,11 +36,11 @@ function Registro() {
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="w-full p-2 mb-3 border rounded" />
                 <input type="password" value={contrasena} onChange={e => setContrasena(e.target.value)} placeholder="Contraseña" className="w-full p-2 mb-3 border rounded" />
                 <select value={rol} onChange={e => setRol(e.target.value)} className="w-full p-2 mb-3 border rounded">
-                  <option value="">Selecciona un rol</option>
-                  <option value="Bibliotecario">Bibliotecario</option>
-                  <option value="Cliente">Cliente</option>
-                </select>                
-                <button type="submit"
+                <option value="">Selecciona un rol</option>
+                <option value="Bibliotecario">Bibliotecario</option>
+                <option value="Cliente">Cliente</option>
+              </select>                
+              <button type="submit"
                   className="w-full p-2 mt-2 bg-green-500 text-white rounded shadow-md hover:shadow-lg transition cursor-pointer">Enviar
                 </button>
             </form>

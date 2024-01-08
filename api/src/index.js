@@ -81,21 +81,15 @@ const resolvers = {
 
       return usuario;
     },
-    iniciarSesion: async (_, { email, contrasena }, { models }) => {
-      // Buscar al usuario
-      const usuario = await models.Usuario.findOne({ email });
-
-      // Verificar si el usuario existe y la contraseña es correcta
-      if (!usuario || !await bcrypt.compare(contrasena, usuario.contrasena)) {
+    iniciarSesion: async (_parent, args, context, _info) => {
+      const { email, contrasena } = args;
+      const usuario = await Usuario.verificarContrasena(email, contrasena);
+      if (!usuario) {
         throw new Error('Invalid credentials');
       }
-
-      // Generar un token de autenticación
-      const token = jwt.sign({ id: usuario.id }, 'miClaveSecreta');
-
-      return token;
-    }
-  }
+      return usuario;
+    },
+  },
 };
 
 /*
