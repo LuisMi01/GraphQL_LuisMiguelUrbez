@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import githubLogo from '../images/githublogo.png';
 import uaxLogo from '../images/uaxlogo.png';
+import Registro from './Registro';
 
 function Banner() {
   const [busqueda, setBusqueda] = useState('');
@@ -58,9 +59,7 @@ function Banner() {
           className="bg-blue-500 text-white p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer">Iniciar
           sesión
         </button>
-        <button
-          className="bg-green-500 text-white p-2 rounded ml-2 shadow-md hover:shadow-lg transition cursor-pointer">Registrarse
-        </button>
+        <Registro/>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 
 export const GET_LIBROS_CATEGORIA = gql`
     query GetLibrosCategoria($nombre: String!) {
@@ -34,4 +34,15 @@ export const GET_LIBROS = gql`
             disponible
         }
     }
+`;
+
+export const REGISTRAR_USUARIO = gql`
+  mutation RegistrarUsuario($nombre: String!, $email: String!, $contrasena: String!, $rol: String!) {
+    registrarUsuario(nombre: $nombre, email: $email, contrasena: $contrasena, rol: $rol) {
+      id
+      nombre
+      email
+      rol
+    }
+  }
 `;
