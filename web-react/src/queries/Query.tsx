@@ -55,3 +55,15 @@ export const INICIAR_SESION = gql`
     }
   }
 `;
+
+export const LIBROS_RECOMENDADOS = gql`
+query LibrosRecomendados($nombre: String!) {
+  librosRecomendados(nombre: $nombre){
+    titulo
+  autor
+  iban
+  disponible
+  }
+}
+ 
+`;

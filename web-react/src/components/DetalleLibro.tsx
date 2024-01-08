@@ -1,6 +1,7 @@
 'use client'
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
+import TarjetaRecomendaciones from './TarjetaRecomendaciones';
 
 const GET_LIBRO_DETALLE = gql`
     query GetLibroDetalle($titulo: String!) {
@@ -77,6 +78,9 @@ function DetalleLibro() {
         <Link to={`/prestamo/${titulo.replace(/\s/g, '_')}`} className="text-center bg-green-500 hover:bg-green-700 shadow-lg transition cursor-pointer text-white font-bold py-2 px-4 rounded-lg w-full">
           Solicitar prestamo a bibliotecario
         </Link>
+      </div>
+      <div>
+        <TarjetaRecomendaciones/>
       </div>
     </div>
   );

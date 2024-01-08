@@ -55,6 +55,7 @@ type Query {
   libros: [Libro]
   librosPorCategoria(nombre: String!): [Libro]
   autores: [Autor]
+  librosRecomendados(nombre: String!): [Libro]
 }
 
 type Mutation {
