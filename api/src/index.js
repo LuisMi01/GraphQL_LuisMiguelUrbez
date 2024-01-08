@@ -68,9 +68,21 @@ const resolvers = {
 
   Mutation: {
     registrarUsuario: async (_, { nombre, email, contrasena, rol }, { models }) => {
+      console.log("Iniciar mutación registrarUsuario");
+      console.log("Argumentos:", { nombre, email, contrasena, rol });
+  
       // Encriptar la contraseña
       const contrasenaEncriptada = await bcrypt.hash(contrasena, 10);
-
+      console.log("Contraseña encriptada:", contrasenaEncriptada);
+  
+      // Imprimir los datos en la consola
+      console.log({
+        nombre,
+        email,
+        contrasena: contrasenaEncriptada,
+        rol
+      });
+  
       // Crear el nuevo usuario
       const usuario = await models.Usuario.create({
         nombre,
@@ -78,7 +90,7 @@ const resolvers = {
         contrasena: contrasenaEncriptada,
         rol
       });
-
+  
       return usuario;
     },
     iniciarSesion: async (_parent, args, context, _info) => {

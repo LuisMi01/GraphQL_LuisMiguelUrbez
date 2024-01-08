@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { REGISTRAR_USUARIO } from "../queries/Query";
 
 function Registro() {
-  const [registrarUsuario, { data }] = useMutation(REGISTRAR_USUARIO);
+  const [registrarUsuario] = useMutation(REGISTRAR_USUARIO);
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [contrasena, setContrasena] = useState('');

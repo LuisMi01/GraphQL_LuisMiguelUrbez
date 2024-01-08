@@ -37,10 +37,10 @@ export const GET_LIBROS = gql`
 `;
 
 export const REGISTRAR_USUARIO = gql`
-  mutation RegistrarUsuario($nombre: String!, $email: String!, $contrasena: String!, $rol: String!) {
+  mutation registrarUsuario($nombre: String!, $email: String!, $contrasena: String!, $rol: String!) {
     registrarUsuario(nombre: $nombre, email: $email, contrasena: $contrasena, rol: $rol) {
-      id
       nombre
+      contrasena
       email
       rol
     }
