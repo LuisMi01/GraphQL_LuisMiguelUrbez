@@ -7,8 +7,9 @@ import dotenv from 'dotenv'
 
 // set environment variables from .env
 dotenv.config()
-
+const bcrypt = require('bcrypt');
 const app = express()
+const Usuario = require('./models/Usuario'); 
 
 /*
  * Create a Neo4j driver instance to connect to the database
@@ -64,6 +65,37 @@ const resolvers = {
       });
     },
   },
+
+  Mutation: {
+    registrarUsuario: async (_, { nombre, email, contrasena, rol }, { models }) => {
+      // Encriptar la contraseña
+      const contrasenaEncriptada = await bcrypt.hash(contrasena, 10);
+
+      // Crear el nuevo usuario
+      const usuario = await models.Usuario.create({
+        nombre,
+        email,
+        contrasena: contrasenaEncriptada,
+        rol
+      });
+
+      return usuario;
+    },
+    iniciarSesion: async (_, { email, contrasena }, { models }) => {
+      // Buscar al usuario
+      const usuario = await models.Usuario.findOne({ email });
+
+      // Verificar si el usuario existe y la contraseña es correcta
+      if (!usuario || !await bcrypt.compare(contrasena, usuario.contrasena)) {
+        throw new Error('Invalid credentials');
+      }
+
+      // Generar un token de autenticación
+      const token = jwt.sign({ id: usuario.id }, 'miClaveSecreta');
+
+      return token;
+    }
+  }
 };
 
 /*
@@ -79,12 +111,15 @@ const resolvers = {
     context: {
       driver,
       driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
+      models: {
+        Usuario: new Usuario(driver) 
+      }
     },
     typeDefs,
     resolvers,
     introspection: true,
     playground: true,
-  })
+  });
 
   /*
   const server = new ApolloServer({
