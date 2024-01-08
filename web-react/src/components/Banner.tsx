@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import githubLogo from '../images/githublogo.png';
@@ -9,6 +9,18 @@ import InicioSesion from './InicioSesion';
 function Banner() {
   const [busqueda, setBusqueda] = useState('');
   const navigate = useNavigate();
+
+  const [usuario, setUsuario] = useState(() => {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    return usuarioGuardado ? JSON.parse(usuarioGuardado) : null;
+  });
+
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      setUsuario(JSON.parse(usuarioGuardado));
+    }
+  }, []);
 
   const manejarCambio = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBusqueda(event.target.value);
@@ -56,9 +68,15 @@ function Banner() {
 
 
       <div className="flex justify-end">
-        <InicioSesion/>
-        <Registro/>
-      </div>
+      {usuario ? (
+        <p>Bienvenido, {usuario.nombre}</p>
+      ) : (
+        <>
+          <InicioSesion/>
+          <Registro />
+        </>
+      )}
+    </div>
     </div>
   );
 };

@@ -31,5 +31,5 @@ class Usuario {
       return null;
     }
   }
-  
+
   module.exports = Usuario;

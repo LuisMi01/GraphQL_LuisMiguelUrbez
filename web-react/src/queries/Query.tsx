@@ -50,7 +50,8 @@ export const REGISTRAR_USUARIO = gql`
 export const INICIAR_SESION = gql`
   mutation IniciarSesion($email: String!, $contrasena: String!) {
     iniciarSesion(email: $email, contrasena: $contrasena) {
-      token
+      email
+      contrasena
     }
   }
 `;

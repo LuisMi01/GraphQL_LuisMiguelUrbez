@@ -3,10 +3,16 @@ import { useMutation } from "@apollo/client";
 import { INICIAR_SESION } from "../queries/Query";
 
 function InicioSesion() {
-  const [iniciarSesion, { data }] = useMutation(INICIAR_SESION);
+    const [iniciarSesion] = useMutation(INICIAR_SESION, {
+        onCompleted: (data) => {
+          localStorage.setItem('usuario', JSON.stringify(data.iniciarSesion));
+          setMostrarFormulario(false);
+        },
+      });
   const [email, setEmail] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
 
   const manejarEnvio = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

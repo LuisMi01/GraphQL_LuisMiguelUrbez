@@ -79,7 +79,7 @@ const resolvers = {
       console.log({
         nombre,
         email,
-        contrasena: contrasenaEncriptada,
+        contrasena,
         rol
       });
   
@@ -93,12 +93,17 @@ const resolvers = {
   
       return usuario;
     },
-    iniciarSesion: async (_parent, args, context, _info) => {
-      const { email, contrasena } = args;
-      const usuario = await Usuario.verificarContrasena(email, contrasena);
+    iniciarSesion: async (_parent, { email }, { models }) => {
+      console.log("Iniciar mutación iniciarSesion");
+      console.log("Argumentos:", { email });
+    
+      // Buscar el usuario por correo electrónico
+      const usuario = await models.Usuario.findOne({ where: { email } });
+    
       if (!usuario) {
-        throw new Error('Invalid credentials');
+        throw new Error('No existe un usuario con ese correo electrónico');
       }
+    
       return usuario;
     },
   },

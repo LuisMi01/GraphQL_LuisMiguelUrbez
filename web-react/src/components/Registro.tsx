@@ -3,8 +3,13 @@ import { useMutation } from "@apollo/client";
 import { REGISTRAR_USUARIO } from "../queries/Query";
 
 function Registro() {
-  const [registrarUsuario] = useMutation(REGISTRAR_USUARIO);
-  const [nombre, setNombre] = useState('');
+  
+  const [registrarUsuario] = useMutation(REGISTRAR_USUARIO, {
+    onCompleted: (data) => {
+      localStorage.setItem('usuario', JSON.stringify(data.registrarUsuario));
+      setMostrarFormulario(false);
+    },
+  });  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [rol, setRol] = useState('');
@@ -14,6 +19,8 @@ function Registro() {
     event.preventDefault();
     registrarUsuario({ variables: { nombre, email, contrasena, rol } });
   };
+
+  
 
   return (
     <>

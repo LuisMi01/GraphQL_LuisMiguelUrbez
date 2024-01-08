@@ -14,15 +14,15 @@ import { useParams } from 'react-router-dom';
 
 // Crea un cliente Apollo
 const client = new ApolloClient({
-  uri: 'http://localhost:4001/graphql', //esto por ahora funciona, no se si deberia cambiarlo por la uri de neo4j
+  uri: 'http://localhost:4001/graphql', //esto por ahora funciona en local, si quiero usarlo en server hay que cambiarlo
   cache: new InMemoryCache()
 });
 
 
+
+
 function App() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
-
-
   const { nombre } = useParams();
 
   useEffect(() => {
