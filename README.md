@@ -4,6 +4,8 @@
 
 ## Paginas de interés
 
+**Toda la información relacionada con la base de datos, al igual que la explicación de la inicialización de la misma se encuentra en el archivo situado en la raiz del proyecto llamado "Creación de Neo4j.md"**
+
 **Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio**
 https://github.com/grand-stack/grand-stack-starter
 
