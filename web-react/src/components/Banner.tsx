@@ -4,6 +4,7 @@ import '../App.css';
 import githubLogo from '../images/githublogo.png';
 import uaxLogo from '../images/uaxlogo.png';
 import Registro from './Registro';
+import InicioSesion from './InicioSesion';
 
 function Banner() {
   const [busqueda, setBusqueda] = useState('');
@@ -55,10 +56,7 @@ function Banner() {
 
 
       <div className="flex justify-end">
-        <button
-          className="bg-blue-500 text-white p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer">Iniciar
-          sesión
-        </button>
+        <InicioSesion/>
         <Registro/>
       </div>
     </div>

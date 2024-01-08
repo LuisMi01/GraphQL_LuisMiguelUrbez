@@ -46,3 +46,7 @@ export const REGISTRAR_USUARIO = gql`
     }
   }
 `;
+
+export const INICIAR_SESION = gql`
+
+`;
