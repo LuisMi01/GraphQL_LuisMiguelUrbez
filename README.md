@@ -1,7 +1,7 @@
 # Ejercicio programacion concurrente con GraphQL de Luis Miguel Urbez
 
 **La explicación mas detallada del proyecto puede encontrarse en la documentacion .pdf que hay en la raiz del mismo, para entenderlo no dudes en comprobarla y leerla**
-
+**El deployment, pese a estar activo y funcionarl, no es capaz de entenderse con el backend, ya que vercel no maneja las fucniones de GRaphql y de Neo4j, por lo que la lógica detrás de todo el frontend no esta funcoinando en el deployment, en local si que fuciona a la perfección, para saber como ejecutarlo, esta explicado en la documentación del proyecto en la parte de "Conclusiones y advertencias de uso"**
 ## Paginas de interés
 
 **Toda la información relacionada con la base de datos, al igual que la explicación de la inicialización de la misma se encuentra en el archivo situado en la raiz del proyecto llamado "Creación de Neo4j.md"**
