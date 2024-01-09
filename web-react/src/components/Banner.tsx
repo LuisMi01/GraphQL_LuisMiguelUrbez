@@ -35,7 +35,7 @@ function Banner() {
     <div className="grid grid-cols-3 grid-rows-1 p-5 bg-slate-gray">
       <div className="flex row gap-3">
         <div onClick={() => {
-          window.open('https://github.com/LuisMi01/airbnb-mongodb_LuisMiguelUrbez', '_blank');
+          window.open('https://github.com/LuisMi01/GraphQL_LuisMiguelUrbez', '_blank');
         }
         }
              className="hidden md:block text-sm font-semibold py-0.5 px-0.5 rounded-full hover:bg-neutral-100 transition cursor-pointer ">
