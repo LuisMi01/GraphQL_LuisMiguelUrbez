@@ -1,12 +1,10 @@
 # Ejercicio programacion concurrente con GraphQL de Luis Miguel Urbez
 
+**La explicación mas detallada del proyecto puede encontrarse en la documentacion .pdf que hay en la raiz del mismo, para entenderlo no dudes en comprobarla y leerla**
+
 ## Paginas de interés
 
-**Grafo de la base de datos**
-https://workspace-preview.neo4j.io/workspace/explore
-
-**Neo4J Instance DataBase**
-https://console.neo4j.io/?product=aura-db#databases/65bc96ba/detail
+**Toda la información relacionada con la base de datos, al igual que la explicación de la inicialización de la misma se encuentra en el archivo situado en la raiz del proyecto llamado "Creación de Neo4j.md"**
 
 **Para inicializar este proyecto se ha usado GRANDstack, todo se puede encontrar en el siguiente repositorio**
 https://github.com/grand-stack/grand-stack-starter
